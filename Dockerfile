@@ -1,3 +1,1 @@
-FROM centos:latest
-
-CMD ["/bin/bash"]
+FROM nginx
