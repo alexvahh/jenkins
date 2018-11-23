@@ -8,7 +8,8 @@ RUN cd /home/tomcat && curl -L http://www-us.apache.org/dist/tomcat/tomcat-9/v9.
 RUN cd /home/tomcat && unzip apache-tomcat-9.0.13.zip 
 RUN cd /home/tomcat && chmod -R 777 /home/tomcat
 RUN cd /home/tomcat && ln -s apache-tomcat-9.0.13 tomcat
-RUN cd /home/tomcat/tomcat/webapps && curl -L https://github.com/manulachathurika/Apache_Stratos_Tomcat_Applications/raw/master/Calendar.war -o calendar.war
+RUN cd /home/tomcat/tomcat/webapps && curl -L http://mirrors.jenkins.io/war-stable/latest/jenkins.war -o ROOT.war
+COPY setenv.sh /home/tomcat/tomcat/bin
 EXPOSE 8080
 RUN cd /home/tomcat/tomcat/bin && chmod +x *.sh
 ENTRYPOINT cd /home/tomcat/tomcat/bin && ./catalina.sh run
